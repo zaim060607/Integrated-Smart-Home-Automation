@@ -1,0 +1,10 @@
+digraph G {
+ graph [rankdir=LR, bgcolor="white", splines=polyline, nodesep=.48, ranksep=1, fontname="Helvetica", label="Functional Circuit Schematic — Arduino UNO Wokwi Prototype", labelloc=t, fontsize=19, fontcolor="#142b43", pad="0.45"];
+ node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, fillcolor="#f0f5fb", color="#7999b4"];
+ edge [color="#50728c", fontsize=10, arrowsize=.65];
+ inputs [label="INPUTS\nNTC temperature sensor\nLDR light sensor module\nPIR motion sensor\nDoorbell pushbutton\nMode pushbutton", fillcolor="#e5f2ff"];
+ uno [label="ARDUINO UNO R3\nAnalog: A0, A1\nDigital inputs: D2, D3, D4\nDigital outputs: D5–D12\n5V / GND common rails", fillcolor="#dcece8", fontsize=14];
+ outputs [label="OUTPUTS\nD5 Blue cooling LED + 220 ohm\nD6 Yellow room LED + 220 ohm\nD7 Red alert LED + 220 ohm\nD8 Green welcome LED + 220 ohm\nD9 Green normal LED + 220 ohm\nD10 Red armed LED + 220 ohm\nD11 Buzzer\nD12 Servo", fillcolor="#fff0df"];
+ inputs -> uno [label="A0 NTC OUT\nA1 LDR AO\nD2 PIR OUT\nD3 Doorbell (pull-up)\nD4 Mode (pull-up)"];
+ uno -> outputs [label="5V/GND rails\nLogic / control outputs"];
+}

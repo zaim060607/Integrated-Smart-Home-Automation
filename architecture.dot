@@ -1,0 +1,21 @@
+digraph G {
+ graph [rankdir=TB, bgcolor="white", splines=ortho, nodesep=0.45, ranksep=0.65, fontname="Helvetica", label="Integrated Smart Home Automation & Security Ecosystem\nDigital Architecture / Logic Flow", labelloc=t, fontsize=20, fontcolor="#142b43", pad="0.35"];
+ node [shape=box, style="rounded,filled", fillcolor="#ecf3f9", color="#4d789d", fontname="Helvetica", fontsize=12, margin="0.17,0.11"];
+ edge [color="#55758b", arrowsize=0.7];
+ start [label="Power On / Arduino setup()", fillcolor="#d9eff0"];
+ poll [label="Non-blocking loop()\nRead sensors every 200 ms\nReport status every 1000 ms", fillcolor="#dce9f7"];
+ temp [label="NTC temperature sensor (A0)"];
+ ldr [label="LDR module (A1)"];
+ pir [label="PIR motion sensor (D2)"];
+ buttons [label="Doorbell (D3) / Mode toggle (D4)"];
+ hvac [label="Temp >= 30 C: cooling ON\nTemp <= 28 C: cooling OFF\nBlue LED D5 + buzzer D11", fillcolor="#e3f3f8"];
+ light [label="LDR > 550: dark / light ON\nYellow LED D6", fillcolor="#fff2c9"];
+ security [label="Normal vs Armed mode\nMode LEDs D9 / D10\nMotion alert D7 + buzzer D11", fillcolor="#ffe4e6"];
+ access [label="Doorbell -> servo D12 opens 90 deg\nWelcome LED D8 ON\nAuto-close after 5 s", fillcolor="#e3f3e7"];
+ output [label="Visual + audible outputs\nSerial Monitor evidence", fillcolor="#d9eff0"];
+ start -> poll;
+ poll -> {temp ldr pir buttons};
+ temp -> hvac; ldr -> light; pir -> security; buttons -> security; buttons -> access;
+ {hvac light security access} -> output;
+ output -> poll [label="Repeat continuously", fontsize=10];
+}

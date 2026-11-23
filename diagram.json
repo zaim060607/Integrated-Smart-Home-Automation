@@ -1,0 +1,406 @@
+{
+  "version": 1,
+  "author": "Smart Home Automation Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 140,
+      "left": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "temp",
+      "top": -170,
+      "left": -360,
+      "attrs": {
+        "temperature": "24"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": -170,
+      "left": -120,
+      "attrs": {
+        "lux": "500"
+      }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir",
+      "top": -170,
+      "left": 130,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "bell",
+      "top": -130,
+      "left": 390,
+      "attrs": {
+        "color": "blue",
+        "label": "DOORBELL"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "mode",
+      "top": -130,
+      "left": 550,
+      "attrs": {
+        "color": "red",
+        "label": "ARM / NORMAL"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "door",
+      "top": 80,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 310,
+      "left": 680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led0",
+      "top": 380,
+      "left": -430,
+      "attrs": {
+        "color": "blue",
+        "label": "COOLING"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res0",
+      "top": 460,
+      "left": -430,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 380,
+      "left": -245,
+      "attrs": {
+        "color": "yellow",
+        "label": "ROOM LIGHT"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res1",
+      "top": 460,
+      "left": -245,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 380,
+      "left": -60,
+      "attrs": {
+        "color": "red",
+        "label": "MOTION ALERT"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res2",
+      "top": 460,
+      "left": -60,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 380,
+      "left": 125,
+      "attrs": {
+        "color": "green",
+        "label": "WELCOME"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res3",
+      "top": 460,
+      "left": 125,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": 380,
+      "left": 310,
+      "attrs": {
+        "color": "green",
+        "label": "NORMAL"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res4",
+      "top": 460,
+      "left": 310,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led5",
+      "top": 380,
+      "left": 495,
+      "attrs": {
+        "color": "red",
+        "label": "ARMED"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "res5",
+      "top": 460,
+      "left": 495,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "temp:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "temp:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "ldr:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "ldr:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "pir:VCC",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "pir:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "temp:OUT",
+      "uno:A0",
+      "orange",
+      []
+    ],
+    [
+      "ldr:AO",
+      "uno:A1",
+      "yellow",
+      []
+    ],
+    [
+      "pir:OUT",
+      "uno:2",
+      "purple",
+      []
+    ],
+    [
+      "bell:1.l",
+      "uno:3",
+      "blue",
+      []
+    ],
+    [
+      "bell:2.l",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "mode:1.l",
+      "uno:4",
+      "blue",
+      []
+    ],
+    [
+      "mode:2.l",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "door:V+",
+      "uno:5V",
+      "red",
+      []
+    ],
+    [
+      "door:GND",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "door:PWM",
+      "uno:12",
+      "orange",
+      []
+    ],
+    [
+      "buzzer:1",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "buzzer:2",
+      "uno:11",
+      "purple",
+      []
+    ],
+    [
+      "uno:5",
+      "res0:1",
+      "green",
+      []
+    ],
+    [
+      "res0:2",
+      "led0:A",
+      "green",
+      []
+    ],
+    [
+      "led0:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:6",
+      "res1:1",
+      "green",
+      []
+    ],
+    [
+      "res1:2",
+      "led1:A",
+      "green",
+      []
+    ],
+    [
+      "led1:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:7",
+      "res2:1",
+      "green",
+      []
+    ],
+    [
+      "res2:2",
+      "led2:A",
+      "green",
+      []
+    ],
+    [
+      "led2:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:8",
+      "res3:1",
+      "green",
+      []
+    ],
+    [
+      "res3:2",
+      "led3:A",
+      "green",
+      []
+    ],
+    [
+      "led3:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:9",
+      "res4:1",
+      "green",
+      []
+    ],
+    [
+      "res4:2",
+      "led4:A",
+      "green",
+      []
+    ],
+    [
+      "led4:C",
+      "uno:GND.1",
+      "black",
+      []
+    ],
+    [
+      "uno:10",
+      "res5:1",
+      "green",
+      []
+    ],
+    [
+      "res5:2",
+      "led5:A",
+      "green",
+      []
+    ],
+    [
+      "led5:C",
+      "uno:GND.1",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
